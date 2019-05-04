@@ -8,13 +8,18 @@ const initialState = {
   songLyricsArray: songLyricsArray,
   arrayPosition: 0
 };
-
+const reducer = (state = initialState, action) => {
+  return state;
+};
 const { createStore } = Redux;
 const store = createStore(reducer);
-console.log(store.getState());
 
 //TESTS
 
 const { expect } = window;
 
 expect(reducer(initialState, { type: null })).toEqual(initialState);
+expect(reducer(initialState, { type: "NEXT_LYRIC" })).toEqual({
+  songLyricsArray: songLyricsArray,
+  arrayPosition: 1
+});
