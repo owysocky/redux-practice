@@ -37,7 +37,6 @@ expect(reducer(initialState, { type: "NEXT_LYRIC" })).toEqual({
 // REDUX STORE
 const { createStore } = Redux;
 const store = createStore(reducer);
-console.log(store.getState());
 
 // RENDERING STATE IN DOM
 const renderLyrics = () => {
@@ -58,5 +57,6 @@ window.onload = function() {
 
 // CLICK LISTENER
 const userClick = () => {
-  console.log("click");
+  store.dispatch({ type: "NEXT_LYRIC" });
+  console.log(store.getState());
 };
