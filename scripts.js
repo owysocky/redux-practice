@@ -68,9 +68,6 @@ const songChangeReducer = (state = initialState.currentSongId, action) => {
   }
 };
 
-const songChangeReducer = ((state = initialState.currentSongId),
-{ type: "CHANGE_SONG", newSelectedSongId: 1 }).toEqual(1);
-
 // JEST TESTS + SETUP
 const { expect } = window;
 
@@ -121,6 +118,13 @@ expect(
     arrayPosition: 0
   }
 });
+
+expect(
+  songChangeReducer(initialState.currentSongId, {
+    type: "CHANGE_SONG",
+    newSelectedSongId: 1
+  })
+).toEqual(1);
 
 expect(songChangeReducer(initialState, { type: null })).toEqual(initialState);
 
