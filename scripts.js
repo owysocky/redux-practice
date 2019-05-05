@@ -9,7 +9,17 @@ const initialState = {
   arrayPosition: 0
 };
 const reducer = (state = initialState, action) => {
-  return state;
+  switch (action.type) {
+    case "NEXT_LYRIC":
+      let newArrayPosition = state.arrayPosition + 1;
+      let newState = {
+        songLyricsArray: state.songLyricsArray,
+        arrayPosition: newArrayPosition
+      };
+      return newState;
+    default:
+      return state;
+  }
 };
 const { createStore } = Redux;
 const store = createStore(reducer);
